@@ -7,8 +7,41 @@
 	</head>
 	<body>
 		<h1>Form Submission</h1>
+		
+		<?php
+
+		if ($_SERVER['REQUEST_METHOD'] === "POST")
+		{ 
+			
+			$Firstname=basic_validation($_POST['Firstname']);
+			$Lastname=basic_validation($_POST['Lastname']);
+			$Gender=basic_validation($_POST['Gender']);
+			$DOB=basic_validation($_POST['DOB']);
+			$Religion=basic_validation($_POST['Religion']);
+			$presentaddress=basic_validation($_POST['presentaddress']);
+			$Permanentaddress=basic_validation($_POST['Permanentaddress']);
+			$phone=basic_validation($_POST['phone']);
+			$Email=basic_validation($_POST['Email']);
+			$Lienk=basic_validation($_POST['Lienk']);
+			$Username=basic_validation($_POST['Username']);
+			$Password=basic_validation($_POST['Password']);
 
 
+			
+
+		}
+
+	    // validate input
+		function basic_validation($data)
+		{
+			$data = trim($data);
+			$data = htmlspecialchars($data);
+			$data = stripcslashes($data);
+			return $data;
+		}
+
+
+		?>
 
 
 
@@ -87,7 +120,7 @@
 
 			</fieldset>
 			<br>
- 			<input type="submit" value="submit">
+			<input type="submit" value="submit">
 
 
 		</form>
